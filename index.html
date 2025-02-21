@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exotic Design Inc.</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+    <style>
+        body {
+            background-color: #000000;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            text-align: center;
+	    margin: 0;
+	    padding: 0;
+        }
+        header {
+            background-color: #000000;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+	    flex-wrap: wrap;
+        }
+        header img {
+            max-height: 170px;
+            margin-right: 20px;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: #FFFFFF;
+            text-decoration: none;
+        }
+        .slideshow-container img {
+            width: 100%;
+            max-height: 500px;
+            object-fit: cover;
+        }
+        section {
+            padding: 40px;
+        }
+        .services-container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .services-list {
+            text-align: left;
+            padding-right: 20px;
+        }
+        .services-list ul {
+            list-style: none;
+            padding: 0;
+        }
+        .services-list li {
+            font-size: 18px;
+            padding: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+            color: #F6A400;
+        }
+        .services-list li:hover {
+            color: #ffffff;
+        }
+        .service-image {
+            width: 500px;
+            height: 300px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 10px;
+        }
+        .reviews {
+            background-color: #111111;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .review {
+            margin-bottom: 20px;
+            padding: 15px;
+            border-left: 5px solid #F6A400;
+            text-align: left;
+        }
+        .review p {
+            font-style: italic;
+        }
+        .review span {
+            font-weight: bold;
+            color: #F6A400;
+        }
+        .stars {
+            color: #F6A400;
+            font-size: 18px;
+        }
+        footer {
+            background-color: #F6A400;
+            padding: 10px;
+            color: #000000;
+        }
+    </style>
+</head>
+<body>
+    <header>
+	<img src="images/logo/exoticdesigninc.jpg" alt="Exotic Design Inc. Logo">
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <section id="gallery">
+        <div class="slideshow-container">
+            <div class="slide fade">
+                <img src="image1.jpg" alt="Project 1">
+            </div>
+            <div class="slide fade">
+                <img src="image2.jpg" alt="Project 2">
+            </div>
+            <div class="slide fade">
+                <img src="image3.jpg" alt="Project 3">
+            </div>
+        </div>
+        <script>
+            let slideIndex = 0;
+            function showSlides() {
+                let slides = document.getElementsByClassName("slide");
+                for (let i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";
+                }
+                slideIndex++;
+                if (slideIndex > slides.length) {slideIndex = 1;}
+                slides[slideIndex - 1].style.display = "block";
+                setTimeout(showSlides, 3000);
+            }
+            showSlides();
+        </script>
+    </section>
+
+    <section id="about" class="about-container">
+        <h2>About Us</h2>
+        <p>
+            <strong>Exotic Design Inc.</strong> is your premier destination for high-end <strong>vehicle customization</strong> in Georgetown South and the GTA. We specialize in <strong>vinyl wrapping</strong>, <strong>commercial graphics</strong>, <strong>ceramic coating</strong>, <strong>paint protection film (PPF)</strong>, <strong>tinting</strong>, <strong>starlight installations</strong>, and <strong>paint correction</strong>. 
+        </p>
+        <p>
+            Our team of experts is dedicated to delivering <strong>exceptional craftsmanship</strong> with premium materials, ensuring your car, boat, or aircraft receives the best treatment. Whether you're looking for a sleek new look with a custom wrap, advanced protection with PPF, or an eye-catching commercial branding solution, we have the skills and technology to bring your vision to life.
+        </p>
+        <p>
+            We serve clients who demand the <strong>best in automotive styling and protection</strong>, using industry-leading products to guarantee long-lasting, showroom-quality finishes. Our goal is to help you protect and personalize your vehicle with top-tier services tailored to your unique needs. 
+        </p>
+        <p>
+            <strong>Visit Exotic Design Inc.</strong> today and experience the ultimate in vehicle enhancement and protection. Contact us for a free consultation!
+        </p>
+    </section>
+
+    <section id="services" class="services-container">
+        <div class="services-list">
+            <h2>Our Services</h2>
+            <ul>
+                <li onclick="showServiceImage('vinyl.jpg')">✅ Vinyl Wrapping</li>
+                <li onclick="showServiceImage('graphics.jpg')">✅ Commercial Graphics</li>
+                <li onclick="showServiceImage('ceramic.jpg')">✅ Ceramic Coating</li>
+                <li onclick="showServiceImage('ppf.jpg')">✅ Paint Protection Film</li>
+                <li onclick="showServiceImage('tinting.jpg')">✅ Tinting</li>
+                <li onclick="showServiceImage('starlight.jpg')">✅ Starlight</li>
+                <li onclick="showServiceImage('paint-correction.jpg')">✅ Paint Correction</li>
+            </ul>
+        </div>
+        <div class="service-image" id="service-image"></div>
+    </section>
+
+    <script>
+        function showServiceImage(image) {
+            document.getElementById('service-image').style.backgroundImage = `url('${image}')`;
+        }
+    </script>
+    <section id="reviews" class="reviews">
+        <h2>Customer Reviews</h2>
+        <div class="review">
+            <p>"Just got my Rolls Royce Cullinan wrapped in ppf film, Ceramic window tints and ceramic coating. Manny and his team did an amazing job. Definitely bring all the cars I get to him!"</p>
+            <div class="stars">★★★★★</div>
+            <span>- Anoop B.</span>
+        </div>
+        <div class="review">
+            <p>"I brought my 2022 Escalade for paint protection film and window tints. Was very happy with the results, the ppf was invisible and the window tints were flawless. I was also in the market for some Forgiato wheels and these guys were able to source and have them installed in a very timely manner. Great shop and service definitely will be bringing the rest of my fleet to them."</p>
+            <div class="stars">★★★★★</div>
+            <span>- Sunny J.</span>
+        </div>
+        <div class="review">
+            <p>"These guys do amazing tinting and car wraps. Manny and his boys have tinted 5 of our vehicles and has just wrapped some carbon fiber on my sons tail fin for his Jetta.  He is fair in his pricing and takes pride in what they do. Thanks Manny.👍❤🙏 …"</p>
+            <div class="stars">★★★★★</div>
+            <span>- Joe G.</span>
+        </div>
+    </section>
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>📍 Georgetown South | Call us today for a free consultation!</p>
+        <p>📞 <a href="tel:+16474696363">+1(647) 469 6363</a></p>
+        <p>📧 <a href="mailto:info@exoticdesign.com">info@exoticdesign.com</a></p>\
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2886.8371803461046!2d-79.88554892317833!3d43.651555771102124!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xae018667de546713%3A0x511171d4d647090f!2sExotic%20Design%20Inc.%20Car%20Wraps%20%7C%20PPF%20%7C%20Ceramic%20Coating!5e0!3m2!1sen!2sca!4v1740085240536!5m2!1sen!2sca" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Exotic Design Inc. | All Rights Reserved</p>
+    </footer>
+</body>
+</html>
