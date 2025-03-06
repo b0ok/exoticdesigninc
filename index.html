@@ -47,38 +47,57 @@
         section {
             padding: 40px;
         }
+    .services-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+    }
+    
+    .services-list {
+        text-align: left;
+        padding-right: 20px;
+    }
+    
+    .services-list ul {
+        list-style: none;
+        padding: 0;
+    }
+    
+    .services-list li {
+        font-size: 18px;
+        padding: 10px;
+        cursor: pointer;
+        transition: 0.3s;
+        color: #F6A400;
+    }
+    
+    .services-list li:hover {
+        color: #ffffff;
+    }
+
+    .service-image {
+        width: 100%;
+        max-width: 500px;
+        height: 300px;
+        background-size: cover;
+        background-position: center;
+        border-radius: 10px;
+        margin-top: 20px;
+    }
+
+    /* Ensure the layout is good for larger screens */
+    @media (min-width: 768px) {
         .services-container {
-            display: flex;
             flex-direction: row;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
+            align-items: flex-start;
         }
-        .services-list {
-            text-align: left;
-            padding-right: 20px;
-        }
-        .services-list ul {
-            list-style: none;
-            padding: 0;
-        }
-        .services-list li {
-            font-size: 18px;
-            padding: 10px;
-            cursor: pointer;
-            transition: 0.3s;
-            color: #F6A400;
-        }
-        .services-list li:hover {
-            color: #ffffff;
-        }
+
         .service-image {
-            width: 500px;
-            height: 300px;
-            background-size: cover;
-            background-position: center;
-            border-radius: 10px;
+            margin-left: 20px;
         }
+    }
         .reviews {
             background-color: #111111;
             padding: 20px;
@@ -109,6 +128,13 @@
             color: #000000;
         }
     </style>
+
+<script>
+    function showServiceImage(image) {
+        document.getElementById('service-image').style.backgroundImage = `url('${image}')`;
+    }
+</script>
+
 </head>
 <body>
     <header>
@@ -126,13 +152,13 @@
     <section id="gallery">
         <div class="slideshow-container">
             <div class="slide fade">
-                <img src="image1.jpg" alt="Project 1">
+                <img src="images/gallery/cybertruck.jpg" alt="Tesla Cybertruck">
             </div>
             <div class="slide fade">
-                <img src="image2.jpg" alt="Project 2">
+                <img src="images/gallery/g63amg.jpg" alt="Mercedes G63 AMG">
             </div>
             <div class="slide fade">
-                <img src="image3.jpg" alt="Project 3">
+                <img src="images/gallery/urus.jpg" alt="Lamborghini Urus">
             </div>
         </div>
         <script>
@@ -167,21 +193,21 @@
         </p>
     </section>
 
-    <section id="services" class="services-container">
-        <div class="services-list">
-            <h2>Our Services</h2>
-            <ul>
-                <li onclick="showServiceImage('vinyl.jpg')">✅ Vinyl Wrapping</li>
-                <li onclick="showServiceImage('graphics.jpg')">✅ Commercial Graphics</li>
-                <li onclick="showServiceImage('ceramic.jpg')">✅ Ceramic Coating</li>
-                <li onclick="showServiceImage('ppf.jpg')">✅ Paint Protection Film</li>
-                <li onclick="showServiceImage('tinting.jpg')">✅ Tinting</li>
-                <li onclick="showServiceImage('starlight.jpg')">✅ Starlight</li>
-                <li onclick="showServiceImage('paint-correction.jpg')">✅ Paint Correction</li>
-            </ul>
-        </div>
-        <div class="service-image" id="service-image"></div>
-    </section>
+<section id="services" class="services-container">
+    <div class="services-list">
+        <h2>Our Services</h2>
+        <ul>
+            <li onclick="showServiceImage('images/services/vinyl.jpg')">✅ Vinyl Wrapping</li>
+            <li onclick="showServiceImage('images/services/graphics.jpg')">✅ Commercial Graphics</li>
+            <li onclick="showServiceImage('images/services/ceramic.jpg')">✅ Ceramic Coating</li>
+            <li onclick="showServiceImage('images/services/ppf.jpg')">✅ Paint Protection Film</li>
+            <li onclick="showServiceImage('images/services/tints.jpg')">✅ Tinting</li>
+            <li onclick="showServiceImage('images/services/starlight.jpg')">✅ Starlight</li>
+            <li onclick="showServiceImage('images/services/paint-correction.jpg')">✅ Paint Correction</li>
+        </ul>
+    </div>
+    <div class="service-image" id="service-image"></div>
+</section>
 
     <script>
         function showServiceImage(image) {
@@ -219,3 +245,4 @@
     </footer>
 </body>
 </html>
+
